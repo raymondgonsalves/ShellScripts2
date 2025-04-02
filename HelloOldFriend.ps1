@@ -24,10 +24,14 @@ Start-Sleep -Milliseconds 500  # Small delay to ensure selection
 $wshell.SendKeys("{DEL}")  # Delete any pre-existing content
 Start-Sleep -Milliseconds 500  # Small delay before input
 $wshell.SendKeys("Hello again Old Friend")  # Input desired text
+$wshell.SendKeys("{ENTER}")
 $wshell.SendKeys("            Hello again Old Friend") 
-$wshell.SendKeys("Hello again Old Friend") 
-$wshell.SendKeys("                                  ") 
-$wshell.SendKeys("Give me a call you stupid Fool!!!!") 
+$wshell.SendKeys("{ENTER}")
+$wshell.SendKeys("            Hello again Old Friend") 
+$wshell.SendKeys("{ENTER}")
+$wshell.SendKeys("                                  ")
+$wshell.SendKeys("{ENTER}")
+$wshell.SendKeys("Give me a call you stupid Fool!!!!")
 '@
 
 
