@@ -27,11 +27,9 @@ $wshell.SendKeys("Hello again Old Friend")  # Input desired text
 $wshell.SendKeys("{ENTER}")
 $wshell.SendKeys("            Hello again Old Friend") 
 $wshell.SendKeys("{ENTER}")
-$wshell.SendKeys("            Hello again Old Friend") 
+$wshell.SendKeys("Hello again Old Friend") 
 $wshell.SendKeys("{ENTER}")
-$wshell.SendKeys("                                  ")
-$wshell.SendKeys("{ENTER}")
-$wshell.SendKeys("Give me a call you stupid Fool!!!!")
+$wshell.SendKeys("Give me a call you stupid Fool!!!!") 
 '@
 
 
