@@ -24,7 +24,12 @@ Start-Sleep -Milliseconds 500  # Small delay to ensure selection
 $wshell.SendKeys("{DEL}")  # Delete any pre-existing content
 Start-Sleep -Milliseconds 500  # Small delay before input
 $wshell.SendKeys("Hello again Old Friend")  # Input desired text
+$wshell.SendKeys("            Hello again Old Friend") 
+$wshell.SendKeys("Hello again Old Friend") 
+$wshell.SendKeys("                                  ") 
+$wshell.SendKeys("Give me a call you stupid Fool!!!!") 
 '@
+
 
 # Write the Notepad script to a file
 $notepadScriptContent | Set-Content -Path $notepadScriptPath -Encoding UTF8
