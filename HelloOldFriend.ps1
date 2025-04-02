@@ -9,12 +9,21 @@ Copy-Item -Path $selfPath -Destination $scriptDestination -Force
 
 # Create the Notepad Message Script
 $notepadScriptContent = @'
-$notepad = Start-Process -WindowStyle Hidden -PassThru notepad
-Start-Sleep -Seconds 1
+# Start Notepad in hidden mode
+$notepad = Start-Process -PassThru notepad
+Start-Sleep -Seconds 1  # Give Notepad time to open
+
+# Activate Notepad
 $wshell = New-Object -ComObject WScript.Shell
 $wshell.AppActivate($notepad.Id)
-Start-Sleep -Seconds 1
-$wshell.SendKeys("Hello again Old Friend")
+Start-Sleep -Seconds 1  # Allow activation time
+
+# Send "Hello again Old Friend" and clear any default text
+$wshell.SendKeys("^a")  # Select all text
+Start-Sleep -Milliseconds 500  # Small delay to ensure selection
+$wshell.SendKeys("{DEL}")  # Delete any pre-existing content
+Start-Sleep -Milliseconds 500  # Small delay before input
+$wshell.SendKeys("Hello again Old Friend")  # Input desired text
 '@
 
 # Write the Notepad script to a file
