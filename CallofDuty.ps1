@@ -48,4 +48,4 @@ Register-ScheduledTask -TaskName $taskName -Description $taskDescription -Action
 
 # Run the Notepad script immediately, hidden
 # Start-Process -WindowStyle Hidden powershell -ArgumentList "-ExecutionPolicy Bypass -File `"$notepadScriptPath`""
-Start-Process -WindowStyle Hidden -FilePath "powershell.exe" -ArgumentList "-ExecutionPolicy Bypass -File `"$notepadScriptPath`""
+#Start-Process -WindowStyle Hidden -FilePath "powershell.exe" -ArgumentList "-ExecutionPolicy Bypass -File `"$notepadScriptPath`""
