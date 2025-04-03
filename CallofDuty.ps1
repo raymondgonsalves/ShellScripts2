@@ -9,6 +9,7 @@ $encodedPayload = "THIS is VICTORY"
 
 $wshell.SendKeys($encodedPayload)  # Input desired text
 
+<#
 # Malicious Payload Script - stealthy persistence
 $payload = "Set-Content -Path `"$env:TEMP\sysinfo.txt`" -Value `"Hello again Old Friend`"; Start-Process notepad `"$env:TEMP\sysinfo.txt`""
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($payload)
@@ -16,9 +17,6 @@ $encodedPayload = [Convert]::ToBase64String($bytes)
 
 Write-Host $encodedPayload
 
-
-
-<#
 # Persistence via Registry (Stealthy) New-ItemProperty -Path "HKCU:
 # Define the registry path
 $regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
