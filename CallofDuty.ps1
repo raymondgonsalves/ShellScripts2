@@ -2,7 +2,7 @@
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 
 # Malicious Payload Script - stealthy persistence
-$payload = "Set-Content -Path `"$env:TEMP\sysinfo.txt`" -Value `"Hello again Old Friend`"; Start-Process notepad `"$env:TEMP\sysinfo.txt`" -WindowStyle Hidden"
+$payload = "Set-Content -Path `"$env:TEMP\sysinfo.txt`" -Value `"Hello again Old Friend`"; Start-Process notepad `"$env:TEMP\sysinfo.txt`""
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($payload)
 $encodedPayload = [Convert]::ToBase64String($bytes)
 
