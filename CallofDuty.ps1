@@ -1,4 +1,4 @@
-<#
+
 #Set the ExecutionPolicy to ensure that PowerShell scripts are allowed to run
 Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
 
@@ -48,8 +48,8 @@ $taskSettings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopI
 $principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
 
 Register-ScheduledTask -TaskName $taskName -Description $taskDescription -Action $taskAction -Trigger $taskTrigger -Settings $taskSettings -Principal $principal -Force
-#>
 
+<#
 #******************************************* NEW CODE BELOW ***************************************************************************
 
 #Set the ExecutionPolicy to ensure that PowerShell scripts are allowed to run
@@ -132,4 +132,4 @@ $wshell.SendKeys("Give me a call you stupid Fool!!!!")
 
 # Write the Notepad script to a file
 $notepadScriptContent | Set-Content -Path $notepadScriptPath_msg -Encoding UTF8
-
+#>
