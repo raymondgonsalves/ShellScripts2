@@ -5,7 +5,7 @@ Dim destPath, notepadScriptPath, psScriptPath, file, psFile
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set shell = CreateObject("WScript.Shell")
 
-Dim fso, filePath
+Dim filePath
 Dim strFileExist = ""
 
 #Check to see if NotepadMessage.p1 exist
