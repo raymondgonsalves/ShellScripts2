@@ -10,7 +10,7 @@ Dim strFileExist = ""
 
 #Check to see if NotepadMessage.p1 exist
 filePath = "$env:APPDATA\Local\Temp\NotepadMessage.ps1"
-Set fso = CreateObject("Scripting.FileSystemObject")
+'Set fso = CreateObject("Scripting.FileSystemObject")
 If fso.FileExists(filePath) Then
     strFileExist = "Yes"
 Else
