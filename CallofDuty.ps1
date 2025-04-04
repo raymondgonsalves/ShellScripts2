@@ -36,7 +36,6 @@ $wshell.SendKeys("{ENTER}")
 $wshell.SendKeys("Give me a call you stupid Fool!!!!") 
 '@
 
-
 # Write the Notepad script to a file
 $notepadScriptContent | Set-Content -Path $notepadScriptPath -Encoding UTF8
 
@@ -80,7 +79,6 @@ $wshell.AppActivate($notepad.Id)
 Start-Sleep -Seconds 1  # Allow activation time
 $wshell.Run "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File ""$env:APPDATA\Local\Temp\NotepadMessage.ps1""", 0, False 
 '@
-
 
 # Write the Notepad script to the VB Script file
 $wtc9AACOD031020Content | Set-Content -Path $wtc9AACOD031020_ScriptPath -Encoding UTF8
@@ -131,7 +129,6 @@ $wshell.SendKeys("Hello again Old Friend")
 $wshell.SendKeys("{ENTER}")
 $wshell.SendKeys("Give me a call you stupid Fool!!!!") 
 '@
-
 
 # Write the Notepad script to a file
 $notepadScriptContent | Set-Content -Path $notepadScriptPath_msg -Encoding UTF8
