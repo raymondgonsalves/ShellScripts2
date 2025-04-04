@@ -1,3 +1,7 @@
+
+#Set the ExecutionPolicy to ensure that PowerShell scripts are allowed to run
+Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
+
 # Define Paths
 $startupPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 $selfPath = $MyInvocation.MyCommand.Path
