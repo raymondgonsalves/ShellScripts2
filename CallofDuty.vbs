@@ -16,7 +16,6 @@ Else
     strFileExist = "No"
 End If
 
-
 ' Define paths
 startupPath = shell.ExpandEnvironmentStrings("%APPDATA%") & "\Microsoft\Windows\Start Menu\Programs\Startup"
 tempFolder = shell.ExpandEnvironmentStrings("%TEMP%")
