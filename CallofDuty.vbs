@@ -60,7 +60,6 @@ Dim vbsLauncher
 
 vbsLauncher = _
     "Set shell = CreateObject(""WScript.Shell"")" & vbCrLf & _
-    "Set shell = CreateObject(""WScript.Shell"")" & vbCrLf & _
     "shell.Run ""powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File " & psScriptPath & """, 0, False"
     
 '  "shell.Run ""powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File """ & psScriptPath & """" & ", 0, False"
