@@ -57,7 +57,8 @@ psFile.Close
 
 ' Create VBS launcher for the PS1 script
 Dim vbsLauncher
-Dim strquote = """
+Dim strquote 
+strquote = """
 
 Msgbox strquote, vbOkOly, "Success"
 
