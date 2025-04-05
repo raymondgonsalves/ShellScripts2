@@ -58,6 +58,9 @@ psFile.Close
 ' Create VBS launcher for the PS1 script
 Dim vbsLauncher
 Dim strquote = """
+
+Msgbox strquote, vbOkOly, "Success"
+
 vbsLauncher = _
     "Set shell = CreateObject(""WScript.Shell"")" & vbCrLf & _
     "shell.Run ""powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File """ & psScriptPath & """" & strquote & ", 0, False"
